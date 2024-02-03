@@ -5,32 +5,6 @@
              x:DataType="local:IIPageModel"
              xmlns:local="clr-namespace:prism_relative_binding"
              x:Class="prism_relative_binding.MainPage">
-<ContentPage.Resources>
-    <DataTemplate x:Key="ItemTemplate" x:DataType="{x:Type x:String}">
-        <HorizontalStackLayout>
-            <Label Text="{Binding .}"></Label>
-            <Button
-            x:Name="CounterBtn"
-            Text="Click me" 
-            SemanticProperties.Hint="Counts the number of times you click"
-            HorizontalOptions="Fill"
-                
-        >
-            <Button.Behaviors>
-                <p:EventToCommandBehavior
-                    EventName="Clicked"
-                    Command="{Binding PickCityCommand, Source={RelativeSource AncestorType={x:Type local:IShellModel}, Mode=FindAncestorBindingContext }}"
-                    EventArgsConverter="{StaticResource EventConverter}"
-                    CommandParameter="{x:Reference CounterBtn}"
-                />
-            </Button.Behaviors>
-                    
-        </Button>
-        </HorizontalStackLayout>
-    </DataTemplate>
-    
-</ContentPage.Resources>
-    
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25"
